@@ -1,13 +1,15 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework import status
+from rest_framework.reverse import reverse
 
 class AddAssetsProductVendorAPITest(TestCase):
     def setUp(self):
         # Initialize the API client
         self.client = APIClient()
-        self.url = '/add-assets-product-vendor-into-monitor-mode'  # API endpoint URL
+        # self.url = '/add-assets-product-vendor-into-monitor-mode'  # API endpoint URL
 
+        self.url = reverse('add-assets-product-vendor-into-monitor-mode')
     def test_valid_post_request(self):
         # Test with valid input data
         data = {
@@ -37,3 +39,8 @@ class AddAssetsProductVendorAPITest(TestCase):
         # Assert that the error messages contain the missing fields
         self.assertIn('product_name', response.data)
         self.assertIn('vendor_name', response.data)
+
+
+class MyAPITestCase(TestCase):
+    def test_example(self):
+        self.assertEqual(1 + 1, 2)

@@ -14,6 +14,18 @@
             "django": true,
             "autoStartBrowser": false,
             "program": "${workspaceFolder}/PatrowlCore/manage.py"
+        },
+        {
+            "name": "Run Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "test",
+                "api"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}/PatrowlCore/manage.py"
         }
     ]
 }
