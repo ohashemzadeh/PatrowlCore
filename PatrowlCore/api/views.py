@@ -26,7 +26,7 @@ class AddAssetsProductVendorView(APIView):
     @extend_schema(
         summary="Add assets, product, and vendor to monitor mode",
         description=(
-            "This API allows you to add an asset, product,and vendor",
+            "This API allows you to add an asset, product,and vendor"
             "into monitor mode by providing their details."
         ),
         request=MonitorModeSerializer,  # Request body schema

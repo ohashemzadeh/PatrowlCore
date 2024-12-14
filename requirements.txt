@@ -2,6 +2,11 @@ Django>=4.2,<4.3
 djangorestframework>=3.14,<4.0
 drf-spectacular>=0.26.3
 
+# development
 autoflake
 autopep8
 flake8
+pylint
+mypy
+django-stubs
+djangorestframework-stubs
