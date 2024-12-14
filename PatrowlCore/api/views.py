@@ -1,8 +1,25 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import extend_schema, OpenApiExample
 from .serializers import MonitorModeSerializer
+
+
+EXAMPLE_RESPONSE_ARTIFACTS = OpenApiExample(
+    name='EXAMPLE_RESPONSE_ARTIFACTS',
+    status_codes=["200"],
+    response_only=True,
+    value=[
+        {
+            "name": "Example Request",
+            "value": {
+                    "asset_name": "Server 1",
+                    "product_name": "Firewall",
+                    "vendor_name": "Vendor A"
+            },
+        }
+    ],
+)
 
 
 class AddAssetsProductVendorView(APIView):
@@ -17,16 +34,18 @@ class AddAssetsProductVendorView(APIView):
             200: MonitorModeSerializer,  # Response schema (or a description of the response)
             400: "Validation error",
         },
-        examples=[
-            {
-                "name": "Example Request",
-                "value": {
-                    "asset_name": "Server 1",
-                    "product_name": "Firewall",
-                    "vendor_name": "Vendor A"
-                },
-            }
-        ],
+        examples=[EXAMPLE_RESPONSE_ARTIFACTS]
+        # examples = {"a" : "v"}
+        # examples=[
+        #     {
+        #         "name": "Example Request",
+        #         "value": {
+        #             "asset_name": "Server 1",
+        #             "product_name": "Firewall",
+        #             "vendor_name": "Vendor A"
+        #         },
+        #     }
+        # ],
     )
     def post(self, request):
         serializer = MonitorModeSerializer(data=request.data)

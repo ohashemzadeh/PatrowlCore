@@ -8,7 +8,6 @@ class AddAssetsProductVendorAPITest(TestCase):
     def setUp(self):
         # Initialize the API client
         self.client = APIClient()
-        # self.url = '/add-assets-product-vendor-into-monitor-mode'  # API endpoint URL
 
         self.url = reverse('add-assets-product-vendor-into-monitor-mode')
 
@@ -43,6 +42,28 @@ class AddAssetsProductVendorAPITest(TestCase):
         self.assertIn('vendor_name', response.data)
 
 
-class MyAPITestCase(TestCase):
-    def test_example(self):
-        self.assertEqual(1 + 1, 2)
+class SwaggerTests(TestCase):
+
+    def test_swagger_ui(self):
+        # Test that the Swagger UI loads correctly
+        url = reverse('swagger-ui')  # URL name for the Swagger UI
+        response = self.client.get(url)
+
+        # Check that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+    def test_redoc_ui(self):
+        # Test that the Redoc UI loads correctly
+        url = reverse('redoc')  # URL name for the Redoc UI
+        response = self.client.get(url)
+
+        # Check that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+    def test_openapi_schema(self):
+        # Test that the OpenAPI schema generates correctly
+        url = reverse('schema')  # URL name for the OpenAPI schema
+        response = self.client.get(url)
+
+        # Check that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
