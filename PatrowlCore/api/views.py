@@ -8,7 +8,10 @@ from .serializers import MonitorModeSerializer
 class AddAssetsProductVendorView(APIView):
     @extend_schema(
         summary="Add assets, product, and vendor to monitor mode",
-        description="This API allows you to add an asset, product, and vendor into monitor mode by providing their details.",
+        description=(
+            "This API allows you to add an asset, product,and vendor",
+            "into monitor mode by providing their details."
+        ),
         request=MonitorModeSerializer,  # Request body schema
         responses={
             200: MonitorModeSerializer,  # Response schema (or a description of the response)
