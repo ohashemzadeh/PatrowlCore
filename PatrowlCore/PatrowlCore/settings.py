@@ -143,3 +143,6 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,  # Don't serve the schema at the root level
 }
+
+
+LLM_PROJECT_ADDR = 'http://0.0.0.0:8100'    # TODO : Change in production
