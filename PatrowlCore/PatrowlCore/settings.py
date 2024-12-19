@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-874n&+(c(up1hccq&6930zx+dpp@32z-8klqg$kv4t_6qi%kg0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []   # type: ignore
 
 
 # Application definition
@@ -143,3 +143,6 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,  # Don't serve the schema at the root level
 }
+
+
+LLM_PROJECT_ADDR = 'http://0.0.0.0:8100'    # TODO : Change in production

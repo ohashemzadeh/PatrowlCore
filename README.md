@@ -8,5 +8,6 @@ sh scripts/generate_openapi_schema.sh
 ```
 
 ```bash
-python3 PatrowlCore/manage.py test api
+source scripts/prepare_dev.sh
+source scripts/pre-commit-check.sh
 ```
