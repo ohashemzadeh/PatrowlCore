@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from .utils import get_env_variable
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,4 +146,5 @@ SPECTACULAR_SETTINGS = {
 }
 
 
-LLM_PROJECT_ADDR = 'http://0.0.0.0:8100'    # TODO : Change in production
+LLM_PROJECT_ADDR = get_env_variable('LLM_PROJECT_ADDR', "http://0.0.0.0:8100")
+LLM_PROJECT_X_API_KEY = get_env_variable('LLM_PROJECT_X_API_KEY', "WRONG_SAMPLE_KEY")
